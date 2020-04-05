@@ -26,12 +26,41 @@ The data is available as 128Mb, 254Mb & full 12Gb(on AWS). This project utilizes
 
 ### Steps
 The data is spread over two months and contains logs of user actions. 
+Original fields in the raw dataset:
+userId: unique identifier for each user
+firstName: demographic information of each user
+lastName: demographic information of each user
+location: demographic information of each user
+gender: demographic information of each user
+userAgent: device that the user used
+sessionId:unique identifier for each session
+itemInSession: unique identifier for each item in a same session
+page: the specific page of website that the user visited, used to identify churn
+song: if the page is 'NextSong', this field will show the name of the song, otherwise only show 'null'
+artist: if the page is 'NextSong', this field will show the name of the artist, otherwise only show 'null'
+level: categorical features that only has 2 values, free or paid
+registration: the timestamp of user registration
+ts: the timestamp of user action
+status : status code There are three HTTP status codes 307: Temporary Redirect, 404: Not Found, 200: OK
+auth : authentication (cancelled/logged in)
+method : PUT/GET
+length : length of item
 1. **EDA**
+Illustrated in sparkify-EDA.ipynb, EDA involved taking care of missing values,understanding unique values in every column and how data 
+is organised. There were 225 unique users out of which 53 churned (23.11% churn rate). EDA also involved analysing characteristics of churned users i.e gender,level(paid/free),total number of sessions, etc.
+2. **Feature Engineering**
+
 
 
 ### Summary of Results
-As it is a classification problem(churn/not churn)-LogisticRegression,RandomForest and GradientBoost algorithms have been used.
-
+As it is a classification problem(churn/not churn)-LogisticRegression,RandomForest and GradientBoost algorithms have been used. Random Forest Classifier required the least computational power, could handle data imbalance and has a high F1 score. Hence,the hyperparameters
+were tuned.
+| Model |F1 score |
+| --- | --- |
+| Logistic Regression( without tuning) | 81.03%|
+| Gradient Boost (without tuning)| 83.77% |
+| Randon Forest (without tuning)| 83% |
+| Randon Forest (with tuning)| 87.38% |
 
 
 
