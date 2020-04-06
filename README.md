@@ -75,8 +75,8 @@ were tuned.
 | --- | --- |
 | Logistic Regression( without tuning) | 82.77%|
 | Gradient Boost (without tuning)| 83.77% |
-| Randon Forest (without tuning)| 83% |
-| Randon Forest (with tuning)| 89.40% |
+| Random Forest (without tuning)| 83% |
+| Random Forest (with tuning)| 89.40% |
 
 The best parameters are maxDepth : 10 and numTrees : 70.
 The most important features are :
