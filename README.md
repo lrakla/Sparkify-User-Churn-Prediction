@@ -6,8 +6,7 @@ A ML project which uses music streaming data to model users who will leave the p
 2. [Software Requirements](#software-requirements)
 3. [Files](#Files)
 4. [Steps](#steps)
-5. [Summary of Results](#summary
--of-results)
+5. [Summary of Results](#summary-of-results)
 
 ### Motivation
 This project aims to tackle one of the most important use cases of Big Data in business - Churn prediction which  is key to retaining customers. It does so by using [Apache Spark](https://spark.apache.org/) - the leading, developer-friendly platform for big data.
@@ -77,16 +76,45 @@ were tuned.
 | Logistic Regression( without tuning) | 82.77%|
 | Gradient Boost (without tuning)| 83.77% |
 | Randon Forest (without tuning)| 83% |
-| Randon Forest (with tuning)| 89.77% |
+| Randon Forest (with tuning)| 89.40% |
 
 The best parameters are maxDepth : 10 and numTrees : 70.
-The most important features are 
+The most important features are :
+1.	registered_days	0.090355
+2.	avg_gap_time_days	0.080672
+3.  Thumbs Down	0.056604
+4.	count(DISTINCT artist)	0.044727
+5.	Thumbs Up	0.040446
+6.  NextSong	0.038806
+7.	Downgrade	0.036481
+8.	count(DISTINCT sessionId)	0.031141
+9.	visit_count	0.028938
+10.	Roll Advert	0.028307
+11.	Add to Playlist	0.024286
+12.	avg_session_duration_mins	0.019367
+13.	Logout	0.019225
+14.	Home	0.018391
+15.	count(DISTINCT song)	0.017147
+16.	avg_daily_items	0.016997
+17.	Add Friend	0.016765
+18.	Settings	0.014395
+19.	Help	0.012654
+20.	Save Settings	0.012421
+21.	Upgrade	0.012353
+22.	About	0.011977
+23.	count	0.011706
+24.	Error	0.011225
+25.	total_length	0.009458
+26.	gender	0.006470
+27.	Submit Upgrade	0.003895
+28.	Submit Downgrade	0.002772
+29.	level	0.000566
 
 ### Points to be noted
 The outputs are for a mini dataset and there may be a slight imbalance in the data. Therefore, the full 12Gb dataset needs to have its own statistical analysis. The features generated become very important. Area Under Curve (AUC) can also be used as a metric. 
 
 ### Acknowledgements
-Thanks to [Udacity](www.udacity.com) for the data and project motivation
+Thanks to [Udacity](www.udacity.com) for the data and project motivation.
 
 
 
