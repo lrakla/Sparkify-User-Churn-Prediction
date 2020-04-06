@@ -1,12 +1,13 @@
 # Sparkify-User-Churn-Prediction
-A ML project which uses music streaming data to model users who will leave the platform(churn). The insights are available in a blog post.
+A ML project which uses music streaming data to model users who will leave the platform(churn). The insights are available in a [blog post]().
 
 ## Table of Contents
 1. [Project Motivation](#motivation)
 2. [Software Requirements](#software-requirements)
 3. [Files](#Files)
 4. [Steps](#steps)
-5. [Summary of Results](#summart-of-results)
+5. [Summary of Results](#summary
+-of-results)
 
 ### Motivation
 This project aims to tackle one of the most important use cases of Big Data in business - Churn prediction which  is key to retaining customers. It does so by using [Apache Spark](https://spark.apache.org/) - the leading, developer-friendly platform for big data.
@@ -62,24 +63,30 @@ total number of unique songs & artists per user
 - *User Information* :
 gender, level(encoded as 0s and 1s)
 - *Miscellaneous* :
-Total items in session per user,total visit of each user, total length per user
+Total items in session per user,total visit of each user, total length per user.
 
 3. **Modelling**
 As it is a classification problem(churn/not churn)-LogisticRegression,RandomForest and GradientBoost algorithms have been used.
-
-
-
-
+Spark MLlib is used to build machine learning models with large datasets, far beyond what can be done with non-distributed technologies like scikit-learn. F1 score is used as metric as only 23% of users churned (meaning accuracy is not a reliable metric).
 
 ### Summary of Results
 Random Forest Classifier required the least computational power, could handle data imbalance and has a high F1 score. Hence,the hyperparameters
 were tuned.
 | Model |F1 score |
 | --- | --- |
-| Logistic Regression( without tuning) | 81.03%|
+| Logistic Regression( without tuning) | 82.77%|
 | Gradient Boost (without tuning)| 83.77% |
 | Randon Forest (without tuning)| 83% |
-| Randon Forest (with tuning)| 87.38% |
+| Randon Forest (with tuning)| 89.77% |
+
+The best parameters are maxDepth : 10 and numTrees : 70.
+The most important features are 
+
+### Points to be noted
+The outputs are for a mini dataset and there may be a slight imbalance in the data. Therefore, the full 12Gb dataset needs to have its own statistical analysis. The features generated become very important. Area Under Curve (AUC) can also be used as a metric. 
+
+### Acknowledgements
+Thanks to [Udacity](www.udacity.com) for the data and project motivation
 
 
 
