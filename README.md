@@ -42,18 +42,37 @@ Original fields in the raw dataset:
 - registration: the timestamp of user registration
 - ts: the timestamp of user action
 - status : status code There are three HTTP status codes 307: Temporary Redirect, 404: Not Found, 200: OK
-- auth : authentication (cancelled/logged in)
+- auth : authentication (cancelled/logged in/logged out)
 - method : PUT/GET
 - length : length of item
-1. **EDA**
-Illustrated in sparkify-EDA.ipynb, EDA involved taking care of missing values,understanding unique values in every column and how data 
-is organised. There were 225 unique users out of which 53 churned (23.11% churn rate). EDA also involved analysing characteristics of churned users i.e gender,level(paid/free),total number of sessions, etc.
-2. **Feature Engineering**
+1. **EDA** - 
+Illustrated in [sparkify-EDA.ipynb](https://github.com/lrakla/Sparkify-User-Churn-Prediction/blob/master/Sparkify-EDA.ipynb), EDA involved taking care of missing values,understanding unique values in every column and how data 
+is organised. There were 225 unique users out of which 53 churned (23.11% churn rate). EDA also involved analysing characteristics of churned users i.e gender,level(paid/free),total number of sessions, etc. Graphs are available [here] (https://github.com/lrakla/Sparkify-User-Churn-Prediction/tree/master/EDA)
+
+2. **Feature Engineering** - 
+By manipulating original fields,following aggregates are created :
+- *Session Related Feature* :
+number of visited session(sessionId), average visit time of each session, average gap days of sessions
+- *Time Related Feature* :
+registered days, days between last visit and the last day in the dataset
+- *Page View Related Feature*:
+total number of visited pages, % of different pages
+- *Music Related Features* :
+total number of unique songs & artists per user
+- *User Information* :
+gender, level(encoded as 0s and 1s)
+- *Miscellaneous* :
+Total items in session per user,total visit of each user, total length per user
+
+3. **Modelling**
+As it is a classification problem(churn/not churn)-LogisticRegression,RandomForest and GradientBoost algorithms have been used.
+
+
 
 
 
 ### Summary of Results
-As it is a classification problem(churn/not churn)-LogisticRegression,RandomForest and GradientBoost algorithms have been used. Random Forest Classifier required the least computational power, could handle data imbalance and has a high F1 score. Hence,the hyperparameters
+Random Forest Classifier required the least computational power, could handle data imbalance and has a high F1 score. Hence,the hyperparameters
 were tuned.
 | Model |F1 score |
 | --- | --- |
