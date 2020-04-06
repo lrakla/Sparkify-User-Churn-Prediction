@@ -1,5 +1,5 @@
 # Sparkify-User-Churn-Prediction
-A ML project which uses music streaming data to model users who will leave the platform(churn). The insights are available in a [blog post]().
+A ML project which uses music streaming data to model users who will leave the platform(churn). The insights are available in a [blog post](https://medium.com/@rlulua/predicting-user-churn-using-apache-spark-1f91fe3696b0).
 
 ## Table of Contents
 1. [Project Motivation](#motivation)
